@@ -18,15 +18,9 @@ public class Kid {
     public List<DrugDealer> drugs = new ArrayList<>();
 
     public Kid(String name, String surname, int age) {
-        if (name == null) {
-            throw new NameIsNullExceptions("Name is null.");
-        }
-        if (surname == null) {
-            throw new SurnameIsNullException("Surname is null.");
-        }
-        if(age < 0){
-            throw new AgeMustBeMoreThanZeroException("Age is less than zero");
-        }
+        Check.nameNotNull(name);
+        Check.surnameNotNull(surname);
+        Check.ageNotNegative(age);
         this.name = name;
         this.surname = surname;
         this.age = age;

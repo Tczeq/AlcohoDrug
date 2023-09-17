@@ -12,24 +12,37 @@ public class Check {
         }
     }
 
-    public static void listSizeNotBelow3(List<Ingredients> ingredients){
+    public static void listSizeNotBelow3(List<Ingredients> ingredients) {
         if (ingredients.size() < 3) {
             throw new NotEnoughIngrediensInDrugException("ingrediens is less than 3");
         }
     }
-    public static void nameNotNull(String name){
-        if(name == null){
+
+    public static void nameNotNull(String name) {
+        if (name == null) {
             throw new NameIsNullExceptions("Name can't be null");
         }
     }
 
     public static void pricePerGramNotNegative(double pricePerGram) {
-        if(pricePerGram < 0){
+        if (pricePerGram < 0) {
             throw new PriceIsLessThanZeroException("Price can't less than zero");
         }
     }
 
     public static boolean badQuality() {
         throw new BadQualityException("DSa");
+    }
+
+    public static void surnameNotNull(String surname) {
+        if (surname == null) {
+            throw new NameIsNullExceptions("Name is null.");
+        }
+    }
+
+    public static void ageNotNegative(int age) {
+        if(age < 0){
+            throw new AgeMustBeMoreThanZeroException("Age is less than zero");
+        }
     }
 }
