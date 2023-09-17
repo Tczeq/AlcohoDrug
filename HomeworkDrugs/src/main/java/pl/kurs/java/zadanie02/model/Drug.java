@@ -3,6 +3,7 @@ package pl.kurs.java.zadanie02.model;
 import pl.kurs.java.zadanie02.exceptions.NameIsNullExceptions;
 import pl.kurs.java.zadanie02.exceptions.NotEnoughIngrediensInDrugException;
 import pl.kurs.java.zadanie02.exceptions.PriceIsLessThanZeroException;
+import pl.kurs.java.zadanie02.interfaces.DrugControler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +11,10 @@ import java.util.List;
 public abstract class Drug {
     private String name;
     private double pricePerGram;
-    private final int quality = 100;
+    private int quality = 100;
     private List<Ingredients> ingredients;
+
+    private DrugControler drugControler;
 
     public List<DrugDealer> drugs = new ArrayList<>();
 
@@ -30,6 +33,18 @@ public abstract class Drug {
         this.ingredients = ingredients;
     }
 
+
+    public void test() {
+        if (ingredients.contains(Ingredients.FLOUR)) {
+            drugControler.checkDrug(false);
+            quality = 50;
+        }
+        if (ingredients.contains(Ingredients.FLOUR) && ingredients.contains(Ingredients.ACID)) {
+            drugControler.checkDrug(false);
+            quality = 25;
+        }
+
+    }
     public abstract double countPrice();
 
     public double getPricePerGram() {

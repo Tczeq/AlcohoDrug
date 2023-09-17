@@ -11,4 +11,8 @@ public class Check {
             throw new TheKidIsAlreadyDeadException("Kid is die.");
         }
     }
+
+    public static boolean sa() {
+        throw new RuntimeException("DSa");
+    }
 }
