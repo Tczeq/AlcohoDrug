@@ -6,6 +6,6 @@ public interface DrugControler {
     boolean quality = true;
 
     default void checkDrug(boolean check) {
-        check = (quality) ? true : Check.sa();
+        check = (quality) ? true : Check.badQuality();
     }
 }

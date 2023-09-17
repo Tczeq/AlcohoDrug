@@ -2,6 +2,7 @@ package pl.kurs.java;
 
 import pl.kurs.java.zadanie02.model.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -26,8 +27,13 @@ public class Main {
             System.out.println(d2.getDrugs());
             System.out.println(d1.countPrice());
             System.out.println(d2.countPrice());
-//        k1.sprawdzIloscDragowUDzieciaka();
 
+
+            List<Ingredients> ingredientsList = new ArrayList<>();
+            ingredientsList.add(Ingredients.FLOUR);
+            ingredientsList.add(Ingredients.ACID);
+//            ingredientsList.add(Ingredients.GLASS);
+            d1.checkQuality();
 
         }
 }
