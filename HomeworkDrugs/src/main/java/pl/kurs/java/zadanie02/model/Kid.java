@@ -1,10 +1,6 @@
 package pl.kurs.java.zadanie02.model;
 
 
-import pl.kurs.java.zadanie02.exceptions.AgeMustBeMoreThanZeroException;
-import pl.kurs.java.zadanie02.exceptions.NameIsNullExceptions;
-import pl.kurs.java.zadanie02.exceptions.SurnameIsNullException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +8,6 @@ public class Kid {
     private String name;
     private String surname;
     private int age;
-
-    private Check check;
 
     public List<DrugDealer> drugs = new ArrayList<>();
 
