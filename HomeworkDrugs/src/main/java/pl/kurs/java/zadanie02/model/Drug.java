@@ -9,11 +9,11 @@ import java.util.List;
 
 @Getter
 public abstract class Drug {
-    private String name;
+    private final String name;
 
-    private double pricePerGram;
+    private final double pricePerGram;
     private int quality = 100;
-    private List<Ingredients> ingredients;
+    private final List<Ingredients> ingredients;
 
     private DrugControler drugControler;
 
@@ -34,16 +34,9 @@ public abstract class Drug {
 
         for(Ingredients element : schowek) {
             int value = element.getQuality();
-
             quality -= value;
         }
-
-        if(quality > 70) {
-            System.out.println("Quality perfect") ;
-        } else {
-            throw new RuntimeException("Bad quality");
-        }
-
+        drugControler.checkDrug(quality > 70);
     }
     public abstract double countPrice();
 

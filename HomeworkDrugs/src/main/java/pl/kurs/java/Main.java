@@ -1,5 +1,6 @@
 package pl.kurs.java;
 
+import pl.kurs.java.zadanie02.interfaces.DrugControler;
 import pl.kurs.java.zadanie02.model.*;
 
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class Main {
             ingredientsList.add(Ingredients.FLOUR);
             ingredientsList.add(Ingredients.ACID);
 //            ingredientsList.add(Ingredients.GLASS);
+
+
             d1.checkQuality();
 
         }
