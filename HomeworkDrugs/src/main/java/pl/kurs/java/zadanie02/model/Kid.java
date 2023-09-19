@@ -21,6 +21,7 @@ public class Kid {
     }
 
     public void addDrug(Drug drug) {
+        Check.dead(kidsDrugs);
         kidsDrugs.add(drug);
         drug.getKids().add(this);
     }

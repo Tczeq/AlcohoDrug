@@ -6,11 +6,11 @@ import pl.kurs.java.zadanie02.exceptions.*;
 import java.util.List;
 
 public class Check {
-//    public static void dead(List<DrugDealer> drugs) {
-//        if (drugs.size() >= 5) {
-//            throw new TheKidIsAlreadyDeadException("Kid is die.");
-//        }
-//    }
+    public static void dead(List<Drug> drugs) {
+        if (drugs.size() >= 5) {
+            throw new TheKidIsAlreadyDeadException("Kid is die.");
+        }
+    }
 
     public static void listSizeNotBelow3(List<Ingredients> ingredients) {
         if (ingredients.size() < 3) {
