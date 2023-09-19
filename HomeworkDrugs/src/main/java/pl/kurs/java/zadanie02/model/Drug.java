@@ -13,12 +13,12 @@ public abstract class Drug {
     private final String name;
 
     private final double pricePerGram;
-    private int quality = 100;
+
     private final List<Ingredients> ingredients;
 
     private DrugControler qualityPerfect;
 
-
+    private int quality = 100;
     public List<Kid> kids = new ArrayList<>();
 
 
@@ -30,6 +30,7 @@ public abstract class Drug {
         this.pricePerGram = pricePerGram;
         this.ingredients = ingredients;
         setQualityPerfect(gualityOfDrug);
+        checkQuality();
     }
 
 
@@ -45,8 +46,21 @@ public abstract class Drug {
 //            throw new BadQualityException("Quality of the drug is not enough");
 //        }
     }
+    public static DrugControler getDefaultDrugControler() {
+        return drug -> {
+            if (drug.getIngredients().size() >= 5) {
+                throw new BadQualityException("Too many ingredients");
+            }
+        };
+    }
+
+
 
     public void checkQuality() {
+        if(this.qualityPerfect != null) {
+            this.qualityPerfect.checkDrug(this);
+        }
+
         List<Ingredients> schowek = new ArrayList<>(ingredients);
 
         for(Ingredients element : schowek) {
@@ -55,7 +69,9 @@ public abstract class Drug {
         }
         if(quality > 70) {
             System.out.println("dobrze");
+            System.out.println(quality);
         } else {
+            System.out.println(quality);
             throw new RuntimeException("źle");
         }
     }

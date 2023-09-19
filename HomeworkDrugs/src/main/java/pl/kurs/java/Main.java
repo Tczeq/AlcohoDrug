@@ -1,5 +1,6 @@
 package pl.kurs.java;
 
+import pl.kurs.java.zadanie02.interfaces.DrugControler;
 import pl.kurs.java.zadanie02.model.*;
 
 import java.util.ArrayList;
@@ -7,9 +8,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Drug d1 = new Lsd("mdma", 4.21, List.of(Ingredients.ACID, Ingredients.FLOUR, Ingredients.GLASS), drug -> drug.getIngredients().size() < 5, 5);
-        Drug d2 = new Cocaine("mefedron", 300, List.of(Ingredients.ACID, Ingredients.FLOUR, Ingredients.GLASS), drug -> drug.getIngredients().size() < 5);
-        Drug d3 = new Lsd("kokaina", 6.21, List.of(Ingredients.ACID, Ingredients.FLOUR, Ingredients.GLASS), drug -> drug.getIngredients().size() < 5, 2);
+        DrugControler drugControler = Drug.getDefaultDrugControler();
+
+
+        Drug d1 = new Lsd("mdma", 4.21, List.of(Ingredients.FLOUR, Ingredients.GLASS, Ingredients.GLASS),Drug.getDefaultDrugControler(), 5);
+        Drug d2 = new Cocaine("mefedron", 300, List.of(Ingredients.FLOUR, Ingredients.FLOUR, Ingredients.GLASS), Drug.getDefaultDrugControler());
+        Drug d3 = new Lsd("kokaina", 6.21, List.of(Ingredients.FLOUR, Ingredients.FLOUR, Ingredients.GLASS), Drug.getDefaultDrugControler(), 2);
 
         Kid k1 = new Kid("kid1", "kid1", 22);
         Kid k2 = new Kid("kid2", "kid2", 22);
@@ -26,13 +30,13 @@ public class Main {
 //        System.out.println(d1.getDrugs());
 //        System.out.println(d2.getDrugs());
         System.out.println(d1.countPrice());
-        System.out.println(d2.countPrice());
+//        System.out.println(d2.countPrice());
 
 
 //            d1.checkQuality();
 
         k1.addDrug(d1);
-        k1.addDrug(d1);
+//        k1.addDrug(d1);
         System.out.println(k1.getKidsDrugs());
         System.out.println(d1.getKids());
 

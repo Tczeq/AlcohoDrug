@@ -22,11 +22,11 @@ public class DrugDealerTest {
 
     @Test(expected = DrugIsNullException.class)
     public void shouldThorwDrugIsNullException(){
-        DrugDealer drugDealerTest = new DrugDealer("Jack", "1111111", kid, null);
+//        DrugDealer drugDealerTest = new DrugDealer("Jack", "1111111", kid, null);
     }
     @Test(expected = KidISNullException.class)
     public void shouldThorwKidIsNullException(){
-        DrugDealer drugDealerTest = new DrugDealer("Jack", "1111111", null, drug);
+//        DrugDealer drugDealerTest = new DrugDealer("Jack", "1111111", null, drug);
     }
 
 }
