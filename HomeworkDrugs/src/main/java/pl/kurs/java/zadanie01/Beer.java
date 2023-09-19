@@ -17,12 +17,12 @@ public class Beer {
     @ToString.Include
     private double cena;
     private String jakoscPiany;
-    private List<IngredientsForAlco> listaSkladnikow;
+    private List<Ingredients> listaSkladnikow;
     private double zawartoscAlkoholu;
     private List<Alcoholic> alcoholicList = new ArrayList<>();
 
     @Builder
-    public Beer(String marka, double cena, String jakoscPiany, List<IngredientsForAlco> listaSkladnikow, double zawartoscAlkoholu) {
+    public Beer(String marka, double cena, String jakoscPiany, List<Ingredients> listaSkladnikow, double zawartoscAlkoholu) {
         this.marka = marka;
         this.cena = cena;
         this.jakoscPiany = jakoscPiany;

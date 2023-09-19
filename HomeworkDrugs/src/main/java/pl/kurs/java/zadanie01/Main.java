@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Beer b1 = new Beer("warka",2.50,"dobra", List.of(IngredientsForAlco.CHMIEL),5);
-        Beer b2 = new Beer("warka2",2.50,"dobra", List.of(IngredientsForAlco.CHMIEL),5);
-        Beer b3 = new Beer("warka3",2.50,"dobra", List.of(IngredientsForAlco.CHMIEL),5);
+        Beer b1 = new Beer("warka",2.50,"dobra", List.of(Ingredients.CHMIEL),5);
+        Beer b2 = new Beer("warka2",2.50,"dobra", List.of(Ingredients.CHMIEL),5);
+        Beer b3 = new Beer("warka3",2.50,"dobra", List.of(Ingredients.CHMIEL),5);
 
         Alcoholic a1 = new Alcoholic("Andrzej","Andrzej");
         Alcoholic a2 = new Alcoholic("Kaziu","Kaziu");

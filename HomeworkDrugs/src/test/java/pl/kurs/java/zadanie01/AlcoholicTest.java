@@ -18,7 +18,7 @@ public class AlcoholicTest {
                 .marka("Warka")
                 .cena(10.0)
                 .jakoscPiany("Dobra")
-                .listaSkladnikow(List.of(IngredientsForAlco.GAZ, IngredientsForAlco.CHMIEL))
+                .listaSkladnikow(List.of(Ingredients.GAZ, Ingredients.CHMIEL))
                 .zawartoscAlkoholu(5.0)
                 .build();
 
@@ -26,7 +26,7 @@ public class AlcoholicTest {
                 .marka("Marka2")
                 .cena(15.0)
                 .jakoscPiany("Zła")
-                .listaSkladnikow(List.of(IngredientsForAlco.GAZ, IngredientsForAlco.CHMIEL))
+                .listaSkladnikow(List.of(Ingredients.GAZ, Ingredients.CHMIEL))
                 .zawartoscAlkoholu(6.0)
                 .build();
 
