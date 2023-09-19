@@ -1,6 +1,7 @@
 package pl.kurs.java.zadanie02.model;
 
 import lombok.Getter;
+import pl.kurs.java.zadanie02.exceptions.BadQualityException;
 import pl.kurs.java.zadanie02.interfaces.DrugControler;
 
 import java.util.ArrayList;
@@ -15,19 +16,28 @@ public abstract class Drug {
     private int quality = 100;
     private final List<Ingredients> ingredients;
 
-    private DrugControler drugControler;
+    private DrugControler qualityPerfect;
 
     public List<DrugDealer> drugs = new ArrayList<>();
 
-    public Drug(String name, double pricePerGram, List<Ingredients> ingredients) {
+    public Drug(String name, double pricePerGram, List<Ingredients> ingredients, DrugControler gualityOfDrug) {
         Check.listSizeNotBelow3(ingredients);
         Check.nameNotNull(name);
         Check.pricePerGramNotNegative(pricePerGram);
         this.name = name;
         this.pricePerGram = pricePerGram;
         this.ingredients = ingredients;
+        setQualityPerfect(gualityOfDrug);
     }
 
+
+    public void setQualityPerfect(DrugControler gualityOfDrug) {
+        if (gualityOfDrug.checkDrug(this)) {
+            this.qualityPerfect = gualityOfDrug;
+        } else {
+            throw new BadQualityException("Quality of the drug is not enough");
+        }
+    }
 
     public void checkQuality() {
         List<Ingredients> schowek = new ArrayList<>(ingredients);
@@ -36,7 +46,7 @@ public abstract class Drug {
             int value = element.getQuality();
             quality -= value;
         }
-        drugControler.checkDrug(quality > 70);
+//        drugControler.checkDrug(quality > 70);
     }
     public abstract double countPrice();
 

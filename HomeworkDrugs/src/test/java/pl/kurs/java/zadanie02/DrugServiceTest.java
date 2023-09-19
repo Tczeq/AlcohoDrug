@@ -7,9 +7,11 @@ import pl.kurs.java.zadanie02.exceptions.BadQualityException;
 import pl.kurs.java.zadanie02.exceptions.NotEnoughIngrediensInDrugException;
 import pl.kurs.java.zadanie02.model.Drug;
 import pl.kurs.java.zadanie02.model.Ingredients;
+import pl.kurs.java.zadanie02.model.Lsd;
 import pl.kurs.java.zadanie02.service.DrugService;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -26,7 +28,9 @@ public class DrugServiceTest {
 
     @Test(expected = NotEnoughIngrediensInDrugException.class)
     public void checkExceptions() {
-        when(drug.getIngredients()).thenReturn(Arrays.asList(Ingredients.FLOUR, Ingredients.ACID));
+        Drug d1 = new Lsd("mdma", 4.21, List.of(Ingredients.FLOUR, Ingredients.GLASS), 5);
+
+//        when(drug.getIngredients()).thenReturn(Arrays.asList(Ingredients.FLOUR, Ingredients.ACID));
     }
 
     @Test

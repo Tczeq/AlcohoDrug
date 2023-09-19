@@ -11,6 +11,7 @@ public class Kid {
 
     public List<DrugDealer> drugs = new ArrayList<>();
 
+
     public Kid(String name, String surname, int age) {
         Check.nameNotNull(name);
         Check.surnameNotNull(surname);

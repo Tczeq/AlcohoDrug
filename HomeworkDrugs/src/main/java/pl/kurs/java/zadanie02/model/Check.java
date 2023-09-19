@@ -1,7 +1,11 @@
 package pl.kurs.java.zadanie02.model;
 
 
-import pl.kurs.java.zadanie02.exceptions.*;
+import pl.kurs.java.zadanie02.exceptions.AgeMustBeMoreThanZeroException;
+import pl.kurs.java.zadanie02.exceptions.NameIsNullExceptions;
+import pl.kurs.java.zadanie02.exceptions.NotEnoughIngrediensInDrugException;
+import pl.kurs.java.zadanie02.exceptions.PriceIsLessThanZeroException;
+import pl.kurs.java.zadanie02.exceptions.TheKidIsAlreadyDeadException;
 
 import java.util.List;
 
@@ -30,9 +34,7 @@ public class Check {
         }
     }
 
-    public static boolean badQuality() {
-        throw new BadQualityException("DSa");
-    }
+
 
     public static void surnameNotNull(String surname) {
         if (surname == null) {

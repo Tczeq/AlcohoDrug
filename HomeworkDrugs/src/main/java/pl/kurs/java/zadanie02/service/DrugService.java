@@ -28,4 +28,5 @@ public class DrugService {
             throw new BadQualityException("Bad quality");
         }
     }
+
 }
