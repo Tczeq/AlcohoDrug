@@ -1,20 +1,16 @@
 package pl.kurs.java.zadanie02.model;
 
 
-import pl.kurs.java.zadanie02.exceptions.AgeMustBeMoreThanZeroException;
-import pl.kurs.java.zadanie02.exceptions.NameIsNullExceptions;
-import pl.kurs.java.zadanie02.exceptions.NotEnoughIngrediensInDrugException;
-import pl.kurs.java.zadanie02.exceptions.PriceIsLessThanZeroException;
-import pl.kurs.java.zadanie02.exceptions.TheKidIsAlreadyDeadException;
+import pl.kurs.java.zadanie02.exceptions.*;
 
 import java.util.List;
 
 public class Check {
-    public static void dead(List<DrugDealer> drugs) {
-        if (drugs.size() >= 5) {
-            throw new TheKidIsAlreadyDeadException("Kid is die.");
-        }
-    }
+//    public static void dead(List<DrugDealer> drugs) {
+//        if (drugs.size() >= 5) {
+//            throw new TheKidIsAlreadyDeadException("Kid is die.");
+//        }
+//    }
 
     public static void listSizeNotBelow3(List<Ingredients> ingredients) {
         if (ingredients.size() < 3) {
@@ -35,7 +31,6 @@ public class Check {
     }
 
 
-
     public static void surnameNotNull(String surname) {
         if (surname == null) {
             throw new NameIsNullExceptions("Name is null.");
@@ -47,4 +42,18 @@ public class Check {
             throw new AgeMustBeMoreThanZeroException("Age is less than zero");
         }
     }
+
+
+    public static void kidNotNull(Kid kid) {
+        if (kid == null) {
+            throw new KidISNullException("drug is null");
+        }
+    }
+
+    public static void drugNotNull(Drug drug) {
+        if (drug == null) {
+            throw new DrugIsNullException("drug is null");
+        }
+    }
+
 }

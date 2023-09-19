@@ -6,7 +6,6 @@ import org.mockito.Mockito;
 import pl.kurs.java.zadanie02.exceptions.DrugIsNullException;
 import pl.kurs.java.zadanie02.exceptions.KidISNullException;
 import pl.kurs.java.zadanie02.model.Drug;
-import pl.kurs.java.zadanie02.model.DrugDealer;
 import pl.kurs.java.zadanie02.model.Kid;
 
 
