@@ -7,8 +7,6 @@ import pl.kurs.java.zadanie02.interfaces.DrugControler;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Getter
 public abstract class Drug {
     private final String name;
 
@@ -28,6 +26,26 @@ public abstract class Drug {
     }
 
     public abstract double countPrice();
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPricePerGram() {
+        return pricePerGram;
+    }
+
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public List<Kid> getKids() {
+        return kids;
+    }
+
+    public void setKids(List<Kid> kids) {
+        this.kids = kids;
+    }
 
     @Override
     public String toString() {
