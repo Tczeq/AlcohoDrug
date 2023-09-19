@@ -8,11 +8,8 @@ import java.util.List;
 public class Lsd extends Drug {
     private final int iloscSmokowWawelskich;
 
-
-
-
-    public Lsd(String name, double pricePerGram, List<Ingredients> ingredients, DrugControler gualityOfDrug, int iloscSmokowWawelskich) {
-        super(name, pricePerGram, ingredients, gualityOfDrug);
+    public Lsd(String name, double pricePerGram, List<Ingredients> ingredients, int iloscSmokowWawelskich) {
+        super(name, pricePerGram, ingredients);
         this.iloscSmokowWawelskich = iloscSmokowWawelskich;
     }
 

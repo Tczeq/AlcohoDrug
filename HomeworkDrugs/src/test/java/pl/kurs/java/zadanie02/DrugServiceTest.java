@@ -2,50 +2,37 @@ package pl.kurs.java.zadanie02;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-import pl.kurs.java.zadanie02.exceptions.BadQualityException;
-import pl.kurs.java.zadanie02.exceptions.NotEnoughIngrediensInDrugException;
-import pl.kurs.java.zadanie02.model.Drug;
-import pl.kurs.java.zadanie02.model.Ingredients;
-import pl.kurs.java.zadanie02.model.Lsd;
+import org.mockito.MockitoAnnotations;
+import pl.kurs.java.zadanie02.interfaces.DrugControler;
+import pl.kurs.java.zadanie02.interfaces.IDealController;
+import pl.kurs.java.zadanie02.interfaces.IDrugQuality;
 import pl.kurs.java.zadanie02.service.DrugService;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static org.mockito.Mockito.*;
 
 public class DrugServiceTest {
 
     private DrugService drugService;
-    private Drug drug;
+    @Mock
+    private DrugControler drugControler;
+    @Mock
+    private IDrugQuality checkDrug;
+    @Mock
+    private IDealController dealController;
+
 
     @Before
     public void init() {
-        drug = Mockito.mock(Drug.class);
-        drugService = new DrugService(drug);
+        MockitoAnnotations.openMocks(this);
+        drugService = new DrugService(drugControler, dealController, checkDrug);
     }
-
-//    @Test(expected = NotEnoughIngrediensInDrugException.class)
-//    public void checkExceptions() {
-//        Drug d1 = new Lsd("mdma", 4.21, List.of(Ingredients.FLOUR, Ingredients.GLASS), 5);
-//
-////        when(drug.getIngredients()).thenReturn(Arrays.asList(Ingredients.FLOUR, Ingredients.ACID));
-//    }
 
     @Test
-    public void testCheckDrug_goodQuality() {
-        when(drug.getQuality()).thenReturn(80);
-        when(drug.getIngredients()).thenReturn(Arrays.asList(Ingredients.FLOUR, Ingredients.ACID));
-
+    public void shouldSellDrug() {
+        Mockito.when(checkDrug.quality()).thenReturn(71.0);
         drugService.checkQuality();
+        Mockito.verify(dealController).sell();
     }
 
-    @Test(expected = BadQualityException.class)
-    public void testCheckDrug_badQuality() {
-        when(drug.getQuality()).thenReturn(60);
-        when(drug.getIngredients()).thenReturn(Arrays.asList(Ingredients.FLOUR, Ingredients.ACID));
 
-        drugService.checkQuality();
-    }
 }

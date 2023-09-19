@@ -1,7 +1,8 @@
 package pl.kurs.java.zadanie02.service;
 
-import pl.kurs.java.zadanie02.exceptions.BadQualityException;
 import pl.kurs.java.zadanie02.interfaces.DrugControler;
+import pl.kurs.java.zadanie02.interfaces.IDealController;
+import pl.kurs.java.zadanie02.interfaces.IDrugQuality;
 import pl.kurs.java.zadanie02.model.Drug;
 import pl.kurs.java.zadanie02.model.Ingredients;
 
@@ -10,46 +11,50 @@ import java.util.List;
 
 public class DrugService {
     private DrugControler qualityPerfect;
-
-    private Drug druug;
+    private IDealController dealController;
+    private IDrugQuality dragQuality;
 
     private Drug drug;
 
-    public DrugService(Drug drug) {
-        this.drug = drug;
+    public DrugService(DrugControler qualityPerfect, IDealController dealController, IDrugQuality dragQuality) {
+        this.qualityPerfect = qualityPerfect;
+        this.dealController = dealController;
+        this.dragQuality = dragQuality;
     }
 
-//    public void checkDrug() {
-//        double drugg = drug.getQuality();
-//        List<Ingredients> schowek = new ArrayList<>(drug.getIngredients());
-//        for (Ingredients element : schowek) {
-//            int value = element.getQuality();
-//            drugg -= value;
-//        }
-//        drug.setQualityPerfect();
-//        if (drug.getQuality() > 70) {
-//            System.out.println("Quality perfect");
-//        } else {
-//            throw new BadQualityException("Bad quality");
-//        }
-//    }
     public void checkQuality() {
-        drug.setQualityPerfect(qualityPerfect);
+        double quality = dragQuality.quality();
 
-        int quality = drug.getQuality();
-        List<Ingredients> schowek = new ArrayList<>(drug.getIngredients());
-
-        for(Ingredients element : schowek) {
-            int value = element.getQuality();
-            quality -= value;
-        }
-        if(drug.getQuality() > 70) {
-            System.out.println("dobrze");
-            System.out.println(drug.getQuality());
+        if (quality > 70) {
+            qualityPerfect.checkDrug();
+            dealController.sell();
         } else {
-            System.out.println(drug.getQuality());
+            dealController.dontSell();
             throw new RuntimeException("źle");
         }
     }
 
+    public DrugControler getQualityPerfect() {
+        return qualityPerfect;
+    }
+
+    public void setQualityPerfect(DrugControler qualityPerfect) {
+        this.qualityPerfect = qualityPerfect;
+    }
+
+    public IDealController getDealController() {
+        return dealController;
+    }
+
+    public void setDealController(IDealController dealController) {
+        this.dealController = dealController;
+    }
+
+    public IDrugQuality getDragQuality() {
+        return dragQuality;
+    }
+
+    public void setDragQuality(IDrugQuality dragQuality) {
+        this.dragQuality = dragQuality;
+    }
 }
