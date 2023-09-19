@@ -7,8 +7,6 @@ import pl.kurs.java.zadanie02.interfaces.DrugControler;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@Getter
 public abstract class Drug {
     private final String name;
 

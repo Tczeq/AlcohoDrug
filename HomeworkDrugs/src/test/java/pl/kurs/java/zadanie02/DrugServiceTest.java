@@ -1,4 +1,4 @@
-package pl.kurs.java.zadanie02.service;
+package pl.kurs.java.zadanie02;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +21,6 @@ public class DrugServiceTest {
     @Mock
     private IDealController dealController;
 
-
     @Before
     public void init() {
         MockitoAnnotations.openMocks(this);
@@ -32,7 +31,6 @@ public class DrugServiceTest {
     public void shouldNotSellDrug() {
         Mockito.when(checkDrug.quality()).thenReturn(69.0);
         drugService.checkQuality();
-
     }
 
     @Test

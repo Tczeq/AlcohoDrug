@@ -15,21 +15,19 @@ public class DrugService {
     private IDealController dealController;
     private IDrugQuality dragQuality;
 
-
     public DrugService(DrugControler qualityPerfect, IDealController dealController, IDrugQuality dragQuality) {
         this.qualityPerfect = qualityPerfect;
         this.dealController = dealController;
         this.dragQuality = dragQuality;
     }
+    public void countQuality(Drug drug){
 
+    }
     public void checkQuality() {
         double quality = dragQuality.quality();
-
         if (quality > 70) {
             qualityPerfect.checkDrug();
-            //dealController.sell();
         } else {
-            //dealController.dontSell();
             throw new BadQualityException("źle");
         }
     }
