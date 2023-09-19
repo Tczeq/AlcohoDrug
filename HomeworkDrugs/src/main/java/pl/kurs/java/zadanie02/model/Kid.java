@@ -27,10 +27,6 @@ public class Kid {
     }
 
 
-    public List<Drug> getKidsDrugs() {
-        return kidsDrugs;
-    }
-
 
     @Override
     public String toString() {
