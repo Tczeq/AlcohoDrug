@@ -33,7 +33,7 @@ public class Check {
 
     public static void surnameNotNull(String surname) {
         if (surname == null) {
-            throw new NameIsNullExceptions("Name is null.");
+            throw new SurnameIsNullException("Name is null.");
         }
     }
 

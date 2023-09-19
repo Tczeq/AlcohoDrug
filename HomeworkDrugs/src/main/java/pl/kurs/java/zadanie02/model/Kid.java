@@ -9,9 +9,7 @@ public class Kid {
     private String surname;
     private int age;
 
-
     public List<Drug> kidsDrugs = new ArrayList<>();
-
 
     public Kid(String name, String surname, int age) {
         Check.nameNotNull(name);
@@ -27,19 +25,11 @@ public class Kid {
         drug.getKids().add(this);
     }
 
-//    public List<DrugDealer> getDrugs() {
-//        Check.dead(drugs);
-//        return drugs;
-//    }
-
 
     public List<Drug> getKidsDrugs() {
         return kidsDrugs;
     }
 
-    public void setKidsDrugs(List<Drug> kidsDrugs) {
-        this.kidsDrugs = kidsDrugs;
-    }
 
     @Override
     public String toString() {
