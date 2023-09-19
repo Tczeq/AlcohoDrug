@@ -1,5 +1,6 @@
 package pl.kurs.java.zadanie02.service;
 
+import pl.kurs.java.zadanie02.exceptions.BadQualityException;
 import pl.kurs.java.zadanie02.interfaces.DrugControler;
 import pl.kurs.java.zadanie02.interfaces.IDealController;
 import pl.kurs.java.zadanie02.interfaces.IDrugQuality;
@@ -14,7 +15,6 @@ public class DrugService {
     private IDealController dealController;
     private IDrugQuality dragQuality;
 
-    private Drug drug;
 
     public DrugService(DrugControler qualityPerfect, IDealController dealController, IDrugQuality dragQuality) {
         this.qualityPerfect = qualityPerfect;
@@ -27,34 +27,10 @@ public class DrugService {
 
         if (quality > 70) {
             qualityPerfect.checkDrug();
-            dealController.sell();
+            //dealController.sell();
         } else {
-            dealController.dontSell();
-            throw new RuntimeException("źle");
+            //dealController.dontSell();
+            throw new BadQualityException("źle");
         }
-    }
-
-    public DrugControler getQualityPerfect() {
-        return qualityPerfect;
-    }
-
-    public void setQualityPerfect(DrugControler qualityPerfect) {
-        this.qualityPerfect = qualityPerfect;
-    }
-
-    public IDealController getDealController() {
-        return dealController;
-    }
-
-    public void setDealController(IDealController dealController) {
-        this.dealController = dealController;
-    }
-
-    public IDrugQuality getDragQuality() {
-        return dragQuality;
-    }
-
-    public void setDragQuality(IDrugQuality dragQuality) {
-        this.dragQuality = dragQuality;
     }
 }

@@ -1,10 +1,11 @@
-package pl.kurs.java.zadanie02;
+package pl.kurs.java.zadanie02.service;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import pl.kurs.java.zadanie02.exceptions.BadQualityException;
 import pl.kurs.java.zadanie02.interfaces.DrugControler;
 import pl.kurs.java.zadanie02.interfaces.IDealController;
 import pl.kurs.java.zadanie02.interfaces.IDrugQuality;
@@ -27,12 +28,18 @@ public class DrugServiceTest {
         drugService = new DrugService(drugControler, dealController, checkDrug);
     }
 
+    @Test(expected = BadQualityException.class)
+    public void shouldNotSellDrug() {
+        Mockito.when(checkDrug.quality()).thenReturn(69.0);
+        drugService.checkQuality();
+
+    }
+
     @Test
     public void shouldSellDrug() {
         Mockito.when(checkDrug.quality()).thenReturn(71.0);
         drugService.checkQuality();
-        Mockito.verify(dealController).sell();
+        Mockito.verify(drugControler).checkDrug();
     }
-
 
 }

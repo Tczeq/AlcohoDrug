@@ -21,12 +21,44 @@ public class Kid {
     }
 
     public void addDrug(Drug drug) {
-        Check.dead(kidsDrugs);
+        Check.drugNotNull(drug);
         kidsDrugs.add(drug);
         drug.getKids().add(this);
+        Check.dead(this);
+
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public List<Drug> getKidsDrugs() {
+        return kidsDrugs;
+    }
+
+    public void setKidsDrugs(List<Drug> kidsDrugs) {
+        this.kidsDrugs = kidsDrugs;
+    }
 
     @Override
     public String toString() {

@@ -29,6 +29,26 @@ public abstract class Drug {
 
     public abstract double countPrice();
 
+    public String getName() {
+        return name;
+    }
+
+    public double getPricePerGram() {
+        return pricePerGram;
+    }
+
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public List<Kid> getKids() {
+        return kids;
+    }
+
+    public void setKids(List<Kid> kids) {
+        this.kids = kids;
+    }
+
     @Override
     public String toString() {
         return "Drug{" +

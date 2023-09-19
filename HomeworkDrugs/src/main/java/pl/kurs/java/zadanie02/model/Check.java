@@ -6,8 +6,8 @@ import pl.kurs.java.zadanie02.exceptions.*;
 import java.util.List;
 
 public class Check {
-    public static void dead(List<Drug> drugs) {
-        if (drugs.size() >= 5) {
+    public static void dead(Kid kid) {
+        if (kid.getKidsDrugs().size() >= 5) {
             throw new TheKidIsAlreadyDeadException("Kid is die.");
         }
     }
@@ -38,7 +38,7 @@ public class Check {
     }
 
     public static void ageNotNegative(int age) {
-        if(age < 0){
+        if (age < 0) {
             throw new AgeMustBeMoreThanZeroException("Age is less than zero");
         }
     }
